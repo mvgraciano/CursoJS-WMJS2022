@@ -1,0 +1,1 @@
+this.ola2 = 'Olá2 fom pastaC';
