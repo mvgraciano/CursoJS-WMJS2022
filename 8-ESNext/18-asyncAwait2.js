@@ -13,7 +13,7 @@ function gerarNumerosEntre(min, max, numerosProibidos) {
     })
 }
 
-async function gerarMegaSenha(qtdNumeros, tentativas = 1) {
+async function gerarMegaSena(qtdNumeros, tentativas = 1) {
     try {
         const numeros = [];
         for (let _ of Array(qtdNumeros).fill()) {
@@ -26,10 +26,10 @@ async function gerarMegaSenha(qtdNumeros, tentativas = 1) {
             throw "Não foi possível gerar";
         }
 
-        return gerarMegaSenha(qtdNumeros, tentativas + 1);
+        return gerarMegaSena(qtdNumeros, tentativas + 1);
     }
 }
 
-gerarMegaSenha(8)
+gerarMegaSena(8)
     .then(console.log)
     .catch(console.log);
