@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            height: 100%;
+        }
+
+        body {
+            background-color: #ccc;
+            font-family: 'Oswald', sans-serif;
+            height: 100%;
+        }
+
+        .cabecalho {
+            width: 100%;
+            background-color: #222;
+            padding: 10px;
+            border-bottom: 5px solid cornflowerblue;
+            height: 10%;
+            box-sizing: border-box;
+        }
+
+        .cabecalho a {
+            text-decoration: none;
+            color: #FFF;
+            vertical-align: middle;
+        }
+
+        .logo {
+            display: inline;
+            padding: 20px;
+        }
+
+        .logo img {
+            width: 20%;
+            min-width: 175px;
+        }
+
+        @media (max-width: 425px) {
+            .logo img {
+                width: 20%;
+                min-width: 20%;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            float: right;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .menu {
+            display: inline-block;
+        }
+
+        .menu li {
+            display: inline;
+            text-decoration: none;
+            padding: 10px 10px;
+        }
+
+        .menu li.active {
+            background-color: cornflowerblue;
+        }
+
+        .menu li:hover {
+            background-color: cornflowerblue;
+        }
+
+        .menu li:hover a {
+            color: #000;
+        }
+
+        .autenticacao {
+            display: inline;
+            float: right;
+            padding-top: 1%;
+        }
+
+        .autenticacao a {
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+
+        .botao {
+            background-color: crimson;
+            padding: 5px 15px;
+            border-radius: 25px;
+            box-sizing: border-box;
+        }
+
+        .destaque {
+            box-shadow: 2px 2px 1px 1px #000;
+        }
+
+        @media (max-width: 550px) {
+            .menu {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+                /* border: none; */
+            }
+        }
+
+        @media (max-width: 700px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li class="active">
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+
+        window.addEventListener('hashchange', verificarLink);
+
+        function verificarLink() {
+            const ativaveis = ['#inicio', '#cursos', '#sobre', '#contato'];
+            const hash = window.location.hash;
+
+            if (ativaveis.includes(hash))
+                marcarLink(hash);
+        };
+
+        function marcarLink(hash) {
+            const ativo = document.querySelector('.active');
+            if (ativo) ativo.classList.remove('active');
+
+            const link = document.querySelector(`ul a[href='${hash}']`);
+            link.parentNode.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
